@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<stdbool.h>
+
+//prime number counting
+bool CheckPrime(int iNo)
+{
+    int iCnt=0,iFrequency;
+
+    if(iNo<0)
+    {
+        iNo = -iNo;
+    }
+
+    for(iCnt = 2; iCnt <= (iNo / 2); iCnt++)
+    {
+        if(iNo % iCnt == 0)
+        {
+            iFrequency++;
+        }
+    }
+
+    if(iFrequency == 0)  // No Factor
+    {
+        return true;
+    }
+    else
+    {
+        return false;  // Atleast One factor
+    }
+
+    
+}
+
+int main()
+{
+    int iValue = 0;
+    bool iRet = false;
+    
+    printf("Enter the number : \n");
+    scanf("%d",&iValue);
+    
+    iRet=CheckPrime(iValue);
+    
+    if(iRet == true)
+    {
+       printf("%d is a prime number \n",iValue);
+    }
+    else
+    {
+        printf("%d is a non prime number \n",iValue);
+    }
+
+
+    return 0;
+}
